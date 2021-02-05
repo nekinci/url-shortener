@@ -1,0 +1,10 @@
+server:
+  port: 6060
+spring:
+  application:
+    name: urlshortener-service
+  data:
+    mongodb:
+      uri: ************************************
+urlshortener:
+  host: niceurl.live

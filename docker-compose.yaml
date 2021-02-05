@@ -1,0 +1,32 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    ports:
+      - '8090:8080'
+    restart: always
+    expose:
+      - "8090"
+    links:
+      - app:app
+      - frontend:frontend
+  app:
+    build:
+      context: link-shortener
+      dockerfile: Dockerfile
+    restart: 'on-failure:10'
+    ports:
+      - "6060:6060"
+    expose:
+      - "6060"
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    restart: 'on-failure:10'
+    links:
+      - app:app
+    expose:
+      - "3000"
