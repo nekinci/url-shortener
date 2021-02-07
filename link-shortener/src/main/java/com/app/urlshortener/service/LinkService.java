@@ -24,7 +24,7 @@ public class LinkService {
     private final LinkRepository repository;
     private @Value("${urlshortener.host}") String host;
 
-    public String generate(@RequestBody String url){
+    public String generate(String url){
         if (!url.startsWith("http")){
             url = "http://" + url;
         }
@@ -38,7 +38,7 @@ public class LinkService {
         return shortUrl;
     }
 
-    public void get(HttpServletResponse response, @PathVariable("url") String url){
+    public void get(HttpServletResponse response, String url){
         Link get = repository.findByShortUrl(url);
         if (Objects.nonNull(get)) {
             response.setStatus(301);
