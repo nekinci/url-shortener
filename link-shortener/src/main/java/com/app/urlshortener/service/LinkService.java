@@ -49,9 +49,6 @@ public class LinkService {
         response.addHeader("Location", "404");
     }
 
-    public String getHost(){
-        return host;
-    }
     private String generateHelper(String url){
 
         String geneatedUrl = RandomStringUtils.random(6, "abcdefghjklmnoprstuvyzwx1234567890");

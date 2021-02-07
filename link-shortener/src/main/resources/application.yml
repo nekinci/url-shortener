@@ -5,6 +5,6 @@ spring:
     name: urlshortener-service
   data:
     mongodb:
-      uri: ************************************
+      uri: ${MONGODB_URI}
 urlshortener:
   host: niceurl.live

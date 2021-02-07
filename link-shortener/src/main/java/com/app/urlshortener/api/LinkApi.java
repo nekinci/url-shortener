@@ -23,8 +23,4 @@ public class LinkApi {
       service.get(response, url);
     }
 
-    @GetMapping("/host")
-    public String getHost(){
-        return service.getHost();
-    }
 }

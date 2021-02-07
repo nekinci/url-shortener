@@ -7,7 +7,9 @@ import Typist from "react-typist";
 
 const IndexPage = () => {
     const classes = useStyles();
-
+    React.useEffect(() => {
+        document.title = "Url Shortener";
+    },  []);
     return (
         <Container className={classes.main} maxWidth="md">
             <div className={classes.root}>

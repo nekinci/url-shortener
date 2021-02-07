@@ -7,14 +7,6 @@ import {
     Link
 } from "react-router-dom";
 const App = () => {
-  React.useEffect(() => {
-      if (!localStorage.getItem('host')){
-          fetch("http://app:6060/urlshortener/host")
-              .then(res => res.text())
-              .then(res => localStorage.setItem('host', res))
-              .catch(res => console.log(res));
-      }
-  }, []) ;
   return (
     <Router>
       <Switch>

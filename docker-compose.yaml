@@ -10,23 +10,19 @@ services:
     expose:
       - "8090"
     links:
-      - app:app
-      - frontend:frontend
+      - 'app:app'
+      - 'frontend:frontend'
   app:
     build:
       context: link-shortener
       dockerfile: Dockerfile
     restart: 'on-failure:10'
+    environment:
+      MONGODB_URI: mongodb+srv://test:test@cluster0.ggsua.mongodb.net/urlshortener?retryWrites=true&w=majority
     ports:
-      - "6060:6060"
-    expose:
-      - "6060"
+      - '6060:6060'
   frontend:
     build:
       context: frontend
       dockerfile: Dockerfile
     restart: 'on-failure:10'
-    links:
-      - app:app
-    expose:
-      - "3000"

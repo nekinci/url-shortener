@@ -29,12 +29,12 @@ const UrlShortener = () => {
     const getResult = () => {
         setResult(null);
         setLoading(true);
-        fetch('http://app:6060/urlshortener/generate', {
+        fetch('generate', {
             method: 'POST',
             body: baseUrl
         }).then(res => res.text()).then(res => {
-            const host = localStorage.getItem('host');
-            setResult(host + '/' + res);
+            const host = window.location.href;
+            setResult(host + res);
             setLoading(false);
         }).catch(err => {
             setError('Error: Try again');
