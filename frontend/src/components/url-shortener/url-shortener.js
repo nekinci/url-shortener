@@ -19,7 +19,14 @@ const UrlShortener = () => {
     const [baseUrl, setBaseUrl] = React.useState('');
 
     const copyURL = () => {
-        navigator.clipboard.writeText(result);
+        const resultTextField = document.querySelector('result-textfield');
+        resultTextField.focus();
+        resultTextField.select();
+        try {
+            document.execCommand('copy');
+        } catch (err) {
+            console.error('Oops, unable to copy');
+        }
         setCopy(true);
         setTimeout(() => {
             setCopy(false);
@@ -68,7 +75,7 @@ const UrlShortener = () => {
                     <React.Fragment>
                         <Typography variant="h6">Result: </Typography>
                         <div className={classes.container}>
-                            <TextField size="small" label="Short URL" fullWidth variant="standard" margin="normal" autoComplete="off" value={result}></TextField>
+                            <TextField id="result-textfield" size="small" label="Short URL" fullWidth variant="standard" margin="normal" autoComplete="off" value={result}></TextField>
                             <ClickAwayListener onClickAway={() => setCopy(false)} >
                                 <Tooltip PopperProps={{disablePortal: true}} disableFocusListener disableHoverListener disableTouchListener open={copy} onClose={() => setCopy(false)} title="Copied!">
                                     <IconButton onClick={() => copyURL()} color="secondary" size="small" className={classes.iconButton}>
