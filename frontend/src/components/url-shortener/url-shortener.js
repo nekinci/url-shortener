@@ -19,7 +19,7 @@ const UrlShortener = () => {
     const [baseUrl, setBaseUrl] = React.useState('');
 
     const copyURL = () => {
-        const resultTextField = document.querySelector('result-textfield');
+        const resultTextField = document.getElementById('result-textfield');
         resultTextField.focus();
         resultTextField.select();
         try {
