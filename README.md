@@ -1,2 +1,3 @@
 URL Shortener Application
-Demo Address: niceurl.live
+
+Demo Address: http://niceurl.live
